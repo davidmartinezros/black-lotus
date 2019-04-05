@@ -4,6 +4,7 @@
     Welcome to {{ title }}!
   </h1>
 </div>
+<!--
 <mat-form-field>
   <mat-label>Choose Set of Cards</mat-label>
   <mat-select>
@@ -12,12 +13,58 @@
     </mat-option>
   </mat-select>
 </mat-form-field>
+-->
 <!--
   <select ng-model="myselect" ng-options="o as o for o in optionsSets"></select>
 -->
 
+<input type="text" [(ngModel)]="term">
+
 <div *ngIf="cards">
-  <div *ngFor="let card of cards">
-    <img [src]="card.imageUrl"/>
+  <div *ngFor="let card of cards | filter: term">
+    <table border="1">
+        <tr>
+          <td style="width:500px">
+            <table>
+              <tr>
+                <td>id: {{card.id}}</td>
+              </tr>
+              <tr>
+                <td>name: {{card.name}}</td>
+              </tr>
+              <tr>
+                <td>type: {{card.type}}</td>
+              </tr>
+              <tr>
+                <td>power: {{card.power}}</td>
+              </tr>
+              <tr>
+                <td>toughness: {{card.toughness}}</td>
+              </tr>
+              <tr>
+                <td>rarity: {{card.rarity}}</td>
+              </tr>
+              <tr>
+                  <td>colors: {{card.colors}}</td>
+                </tr>
+              <tr>
+                <td>manaCost: {{card.manaCost}}</td>
+              </tr>
+              <tr>
+                <td>originalType: {{card.originalType}}</td>
+              </tr>
+              <tr>
+                <td>originalText: {{card.originalText}}</td>
+              </tr>
+              <tr>
+                <td>artist: {{card.artist}}</td>
+              </tr>
+            </table>
+          </td>
+          <td>
+              <img [src]="card.imageUrl"/>
+          </td>
+        </tr>
+    </table>
   </div>
 </div>

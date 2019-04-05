@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { GetCardsService } from './get-cards.service';
 import { MatSelectModule } from '@angular/material';
 import { DemoMaterialModule } from './demo-material.module';
+import { FilterPipe } from './pipe/filter.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FilterPipe
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     DemoMaterialModule

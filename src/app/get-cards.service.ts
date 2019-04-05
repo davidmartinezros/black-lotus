@@ -51,6 +51,12 @@ export class GetCardsService {
     */
   }
 
+  getAllCards(): Promise<Magic.Card[]> {
+
+    return Magic.Cards.where({page: 10, pageSize: 30});
+  
+  }
+
   getSets(): Magic.MagicEmitter<Magic.Set> {
     return Magic.Sets.all({page: 5, pageSize: 30});
   }

@@ -16,9 +16,9 @@ export class SetOfCards {
 export class AppComponent implements OnInit {
   title = 'black-lotus';
 
-  cards: Magic.Card[];
+  cards: Magic.Card[] = new Array<Magic.Card>();
 
-  optionsSets: SetOfCards[] = new Array<SetOfCards>();
+  //optionsSets: SetOfCards[] = new Array<SetOfCards>();
 
   /*
   optionsSets: SetOfCards[] = [
@@ -32,15 +32,28 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    /*
     this.getCardsService.getCards().then(result => {
       this.cards = result;
-      /*
+      
       for (const card of result) {
         console.log(card); 
       }
-      */
+
     });
-    
+    */
+    this.getCardsService.getAllCards().then(result => {
+      //this.cards = result;
+      
+      for (const card of result) {
+        if(card.imageUrl != null) {
+          this.cards.push(card);
+        }
+        console.log(card); 
+      }
+
+    });
+    /*
     this.getCardsService.getSets().on("data", set => {
       let setTmp: SetOfCards = new SetOfCards();
       setTmp.value = set.name;
@@ -50,5 +63,6 @@ export class AppComponent implements OnInit {
     }).on("end", () => {
       console.log("done");
     });
+    */
   }
 }
