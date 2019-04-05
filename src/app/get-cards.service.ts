@@ -50,4 +50,8 @@ export class GetCardsService {
     });
     */
   }
+
+  getSets(): Magic.MagicEmitter<Magic.Set> {
+    return Magic.Sets.all({page: 5, pageSize: 30});
+  }
 }

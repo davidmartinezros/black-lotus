@@ -4,6 +4,18 @@
     Welcome to {{ title }}!
   </h1>
 </div>
+<mat-form-field>
+  <mat-label>Choose Set of Cards</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let set of optionsSets" [value]="set.value">
+      {{set.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<!--
+  <select ng-model="myselect" ng-options="o as o for o in optionsSets"></select>
+-->
+
 <div *ngIf="cards">
   <div *ngFor="let card of cards">
     <img [src]="card.imageUrl"/>
