@@ -1,70 +1,36 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
-<!--
-<mat-form-field>
-  <mat-label>Choose Set of Cards</mat-label>
-  <mat-select>
-    <mat-option *ngFor="let set of optionsSets" [value]="set.value">
-      {{set.viewValue}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
--->
-<!--
-  <select ng-model="myselect" ng-options="o as o for o in optionsSets"></select>
--->
+<div class="background">
+  <div style="text-align:center">
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+  </div>
 
-<input type="text" [(ngModel)]="term">
+  <form>
+    <div class="md-form active-pink active-pink-2 mb-3 background-search">
+      <input class="form-control" type="text" id="search1" aria-label="Search" mdbInput [(ngModel)]="term" [ngModelOptions]="{standalone: true}">
+      <label for="search1" class="background-button-search">Search</label>
+    </div>
+  </form>
 
-<div *ngIf="cards">
-  <div *ngFor="let card of cards | filter: term">
-    <table border="1">
-        <tr>
-          <td style="width:500px">
-            <table>
-              <tr>
-                <td>id: {{card.id}}</td>
-              </tr>
-              <tr>
-                <td>name: {{card.name}}</td>
-              </tr>
-              <tr>
-                <td>type: {{card.type}}</td>
-              </tr>
-              <tr>
-                <td>power: {{card.power}}</td>
-              </tr>
-              <tr>
-                <td>toughness: {{card.toughness}}</td>
-              </tr>
-              <tr>
-                <td>rarity: {{card.rarity}}</td>
-              </tr>
-              <tr>
-                  <td>colors: {{card.colors}}</td>
-                </tr>
-              <tr>
-                <td>manaCost: {{card.manaCost}}</td>
-              </tr>
-              <tr>
-                <td>originalType: {{card.originalType}}</td>
-              </tr>
-              <tr>
-                <td>originalText: {{card.originalText}}</td>
-              </tr>
-              <tr>
-                <td>artist: {{card.artist}}</td>
-              </tr>
-            </table>
-          </td>
-          <td>
-              <img [src]="card.imageUrl"/>
-          </td>
-        </tr>
-    </table>
+  <div *ngIf="cards" class="container">
+    <div *ngFor="let card of cards | filter: term" class="row mt-3">
+      <div class="col-md-6 divProperties">
+        <span>id: {{card.id}}</span><br/>
+        <span>name: {{card.name}}</span><br/>
+        <span>type: {{card.type}}</span><br/>
+        <span>power: {{card.power}}</span><br/>
+        <span>toughness: {{card.toughness}}</span><br/>
+        <span>rarity: {{card.rarity}}</span><br/>
+        <span>colors: {{card.colors}}</span><br/>
+        <span>manaCost: {{card.manaCost}}</span><br/>
+        <span>originalType: {{card.originalType}}</span><br/>
+        <span>originalText: {{card.originalText}}</span><br/>
+        <span>artist: {{card.artist}}</span>
+      </div>
+      <div class="col-md-6 divImage">
+        <img [src]="card.imageUrl"/>
+      </div>
+    </div>
   </div>
 </div>

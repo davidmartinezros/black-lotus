@@ -8,6 +8,7 @@ import { MatSelectModule } from '@angular/material';
 import { DemoMaterialModule } from './demo-material.module';
 import { FilterPipe } from './pipe/filter.pipe';
 import { FormsModule } from '@angular/forms';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
-    DemoMaterialModule
+    DemoMaterialModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [GetCardsService],
   bootstrap: [AppComponent]

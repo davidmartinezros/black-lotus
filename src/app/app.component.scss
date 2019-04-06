@@ -1,0 +1,37 @@
+div[class^="col"],
+div[class*=" col"] {
+  border: 1px dotted black;
+}
+
+.background-search {
+  background-color: rgba($color: white, $alpha: 0.5);
+  padding: 10px;
+  //padding-top: 30px;
+  //padding-bottom: 10px; 
+}
+
+.background-button-search {
+  background-color: rgba($color: aquamarine, $alpha: 1.0);
+  padding: 10px;
+  //padding-top: 30px;
+  //padding-bottom: 10px; 
+}
+
+.background {
+  width: 1000px;
+  background-image: url('https://cdn-images-1.medium.com/max/2600/1*sYcrMSjHduNwYU-dI45L9w.jpeg');
+  background-repeat: repeat-y;
+  padding: 10px;
+  text-align: center;
+}
+
+.divProperties {
+  padding:10px;
+  background-color: rgba($color: azure, $alpha: 0.5);
+}
+
+.divImage {
+  padding:10px;
+  text-align: center;
+  background-color: rgba($color: aquamarine, $alpha: 0.5);
+}
