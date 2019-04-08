@@ -1,37 +1,128 @@
-div[class^="col"],
-div[class*=" col"] {
-  border: 1px dotted black;
+.navbar-text-by {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.navbar-text-by-link, .navbar-text-by-link:active {
+  color: burlywood;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar-text-by-link:hover {
+  color: rgb(143, 89, 18);
+  text-decoration: underline;
+}
+
+.navbar-text-title-link, .navbar-text-title-link:active {
+  vertical-align: bottom;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar-text-title-link:hover {
+  vertical-align: bottom;
+  color: black;
+  text-decoration: none;
+}
+
+.navbar-image {
+  text-align: right;
+}
+
+span {
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .background-search {
-  background-color: rgba($color: white, $alpha: 0.5);
+  background-image: url('../assets/img/prova.png');
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 10px;
-  //padding-top: 30px;
-  //padding-bottom: 10px; 
 }
 
-.background-button-search {
-  background-color: rgba($color: aquamarine, $alpha: 1.0);
-  padding: 10px;
-  //padding-top: 30px;
-  //padding-bottom: 10px; 
-}
-
-.background {
-  width: 1000px;
+.background-div {
   background-image: url('https://cdn-images-1.medium.com/max/2600/1*sYcrMSjHduNwYU-dI45L9w.jpeg');
-  background-repeat: repeat-y;
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 10px;
-  text-align: center;
+  border: 1px solid black;
 }
 
-.divProperties {
+.div-properties {
   padding:10px;
-  background-color: rgba($color: azure, $alpha: 0.5);
+  background-color: rgba($color: burlywood, $alpha: 0.5);
 }
 
-.divImage {
+.div-image {
   padding:10px;
   text-align: center;
   background-color: rgba($color: aquamarine, $alpha: 0.5);
+}
+
+.div-property {
+  border: 1px solid black;
+  background-color: rgba($color: rgb(155, 109, 49), $alpha: 0.5);
+}
+
+.div-property-image {
+  border: 1px solid black;
+  background-color: rgba($color: rgb(33, 151, 112), $alpha: 0.5);
+}
+
+.div-property-value {
+  border: 1px solid black;
+  background-color: rgba($color: white, $alpha: 0.5);
+}
+
+.style-property {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.row-property {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.style-button {
+  height: 100%;
+  width: 100%;
+}
+
+.span-search-by {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.style-form {
+  background-color: rgba($color: rgba(255, 255, 255, 0.5), $alpha: 0.5);
+  padding-left: 20px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.md-form label {
+  left: 15px;
+  color: burlywood;
+}
+
+.md-form input[type=text] {
+  border-bottom: 1px solid burlywood; 
+}
+
+.md-form input[type=text]:focus:not([readonly]) {
+  box-shadow: 0 1px 0 0 burlywood;
+  border-bottom: 1px solid burlywood; 
+}
+
+.md-form input[type=text]:focus:not([readonly]) + label {
+  color: burlywood;
+}
+
+#search1 {
+  padding-left: 15px;
 }

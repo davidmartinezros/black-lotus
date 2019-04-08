@@ -16,7 +16,19 @@ export class SetOfCards {
 export class AppComponent implements OnInit {
   title = 'black-lotus';
 
-  cards: Magic.Card[] = new Array<Magic.Card>();
+  page: number = 1;
+
+  termSearch: String = "";
+
+  termAutoComplete: String = "";
+
+  nameCheck: Boolean = true;
+
+  typesCheck: Boolean = false;
+
+  textCheck: Boolean = false;
+
+  cards: Magic.Card[];
 
   //optionsSets: SetOfCards[] = new Array<SetOfCards>();
 
@@ -32,37 +44,24 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    /*
-    this.getCardsService.getCards().then(result => {
-      this.cards = result;
-      
-      for (const card of result) {
-        console.log(card); 
-      }
+    this.search();
+  }
 
-    });
-    */
-    this.getCardsService.getAllCards().then(result => {
+  search() {
+    console.log(this.termSearch)
+    this.page = 1;
+    this.getCardsService.getAllCards(this.termSearch, this.nameCheck, this.typesCheck, this.textCheck, this.page, 30).then(result => {
       //this.cards = result;
+      this.cards =  new Array<Magic.Card>();
+      this.termAutoComplete = "";
       
       for (const card of result) {
-        if(card.imageUrl != null) {
+        //if(card.imageUrl != null) {
           this.cards.push(card);
-        }
+        //}
         console.log(card); 
       }
 
     });
-    /*
-    this.getCardsService.getSets().on("data", set => {
-      let setTmp: SetOfCards = new SetOfCards();
-      setTmp.value = set.name;
-      setTmp.viewValue = set.name;
-      this.optionsSets.push(setTmp);
-      console.log(set.name);
-    }).on("end", () => {
-      console.log("done");
-    });
-    */
   }
 }

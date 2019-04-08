@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import * as Magic from "mtgsdk-ts";
+import { type } from 'os';
 
 @Injectable({
   providedIn: 'root'
@@ -51,10 +52,38 @@ export class GetCardsService {
     */
   }
 
-  getAllCards(): Promise<Magic.Card[]> {
+  getAllCards(term, nameCheck, typesCheck, textCheck, page, pageSize): Promise<Magic.Card[]> {
 
-    return Magic.Cards.where({page: 10, pageSize: 30});
-  
+    if(nameCheck) {
+      if(typesCheck) {
+        if(textCheck) {
+          return Magic.Cards.where({name: term, type: term, text: term, page: page, pageSize: pageSize});
+        } else {
+          return Magic.Cards.where({name: term, type: term, page: page, pageSize: pageSize});
+        }
+      } else {
+        if(textCheck) {
+          return Magic.Cards.where({name: term, text: term, page: page, pageSize: pageSize});
+        } else {
+          return Magic.Cards.where({name: term, page: page, pageSize: pageSize});
+        }
+      }
+    } else {
+      if(typesCheck) {
+        if(textCheck) {
+          return Magic.Cards.where({type: term, text: term, page: page, pageSize: pageSize});
+        } else {
+          return Magic.Cards.where({type: term, page: page, pageSize: pageSize});
+        }
+      } else {
+        if(textCheck) {
+          return Magic.Cards.where({text: term, page: page, pageSize: pageSize});
+        } else {
+          return Magic.Cards.where({page: page, pageSize: pageSize});
+        }
+      } 
+    }
+    
   }
 
   getSets(): Magic.MagicEmitter<Magic.Set> {

@@ -1,35 +1,165 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="background">
-  <div style="text-align:center">
-    <h1>
-      Welcome to {{ title }}!
-    </h1>
-  </div>
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div style="width: 75%">
+        <div>
+          <a href="#" class="navbar-text-title-link">Black Lotus</a>
+        </div>
+        <div id="header-navbar-text-by">
+          <span class="navbar-text-by">
+            Done by
+          </span>
+          <a href="https://davidmartinezros.com" class="navbar-text-by-link">David Martínez Ros</a>
+        </div>
+      </div>
+      <div style="width: 25%;">
+        <img src="../assets/img/prova2.png" class="navbar-image"/>
+      </div>
+    </nav>
 
   <form>
-    <div class="md-form active-pink active-pink-2 mb-3 background-search">
-      <input class="form-control" type="text" id="search1" aria-label="Search" mdbInput [(ngModel)]="term" [ngModelOptions]="{standalone: true}">
-      <label for="search1" class="background-button-search">Search</label>
+    <div class="style-form">
+      <div class="row mt-2">
+        <div class="col-md-10">
+          <div class="row md-form">
+            <!--<div class="col-md-11">-->
+                <input class="form-control" type="text" id="search1" aria-label="Search" mdbInput [(ngModel)]="termSearch" [ngModelOptions]="{standalone: true}">
+                <label for="search1">Search in Black Lotus</label>
+            <!--</div>
+            <div class="col-md-1"> 
+              <button mat-button *ngIf="termSearch" matSuffix mat-icon-button aria-label="Clear" (click)="termSearch=''">
+                <mat-icon>close</mat-icon>
+              </button>  
+            </div>-->
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <input
+                type="checkbox"
+                [checked]="nameCheck"
+                (change)="nameCheck = !nameCheck"/>
+              <span class="span-search-by">by Name</span>
+            </div>
+            <div class="col-md-4">
+              <input
+                type="checkbox"
+                [checked]="typesCheck"
+                (change)="typesCheck = !typesCheck"/>
+              <span class="span-search-by">by Types</span>
+            </div>
+            <div class="col-md-4">
+              <input
+                type="checkbox"
+                [checked]="textCheck"
+                (change)="textCheck = !textCheck"/>
+              <span class="span-search-by">by Text</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <button mat-stroked-button (click)="search()" class="style-button">Search</button>
+        </div>
+      </div>
     </div>
   </form>
-
+  <!--
+  <input type="text" id="searchAutoComplete" [(ngModel)]="termAutoComplete" [ngModelOptions]="{standalone: true}">
+  -->
   <div *ngIf="cards" class="container">
-    <div *ngFor="let card of cards | filter: term" class="row mt-3">
-      <div class="col-md-6 divProperties">
-        <span>id: {{card.id}}</span><br/>
-        <span>name: {{card.name}}</span><br/>
-        <span>type: {{card.type}}</span><br/>
-        <span>power: {{card.power}}</span><br/>
-        <span>toughness: {{card.toughness}}</span><br/>
-        <span>rarity: {{card.rarity}}</span><br/>
-        <span>colors: {{card.colors}}</span><br/>
-        <span>manaCost: {{card.manaCost}}</span><br/>
-        <span>originalType: {{card.originalType}}</span><br/>
-        <span>originalText: {{card.originalText}}</span><br/>
-        <span>artist: {{card.artist}}</span>
+    <div *ngFor="let card of cards | filter: termAutoComplete" class="row mt-3 background-div">
+      <div class="col-md-6 div-properties">
+        <div class="row-property mt-3">
+          <div class="col-md-4 div-property">
+              <span class="style-property">id:</span>
+          </div>
+          <div class="col-md-8 div-property-value">
+              <span>{{card.id}}</span>
+          </div>
+        </div>
+        <div class="row-property mt-3">
+          <div class="col-md-4 div-property">
+              <span class="style-property">name:</span>
+          </div>
+          <div class="col-md-8 div-property-value">
+              <span>{{card.name}}</span>
+          </div>
+        </div>
+        <div class="row-property mt-3">
+          <div class="col-md-4 div-property">
+              <span class="style-property">type:</span>
+          </div>
+          <div class="col-md-8 div-property-value">
+              <span>{{card.type}}</span>
+          </div>
+        </div>
+        <div class="row-property mt-3">
+          <div class="col-md-4 div-property">
+              <span class="style-property">power:</span>
+          </div>
+          <div class="col-md-8 div-property-value">
+              <span>{{card.power}}</span>
+          </div>
+        </div>
+        <div class="row-property mt-3">
+          <div class="col-md-4 div-property">
+              <span class="style-property">toughness:</span>
+          </div>
+          <div class="col-md-8 div-property-value">
+              <span>{{card.toughness}}</span>
+          </div>
+        </div>
+        <div class="row-property mt-3">
+          <div class="col-md-4 div-property">
+              <span class="style-property">rarity:</span>
+          </div>
+          <div class="col-md-8 div-property-value">
+              <span>{{card.rarity}}</span>
+          </div>
+        </div>
+        <div class="row-property mt-3">
+          <div class="col-md-4 div-property">
+              <span class="style-property">originalType:</span>
+          </div>
+          <div class="col-md-8 div-property-value">
+              <span>{{card.originalType}}</span>
+          </div>
+        </div>
+        <div class="row-property mt-3">
+          <div class="col-md-4 div-property">
+              <span class="style-property">originalText:</span>
+          </div>
+          <div class="col-md-8 div-property-value">
+              <span>{{card.originalText}}</span>
+          </div>
+        </div>
+        <div class="row-property mt-3">
+          <div class="col-md-4 div-property">
+              <span class="style-property">artist:</span>
+          </div>
+          <div class="col-md-8 div-property-value">
+              <span>{{card.artist}}</span>
+          </div>
+        </div>
       </div>
-      <div class="col-md-6 divImage">
-        <img [src]="card.imageUrl"/>
+      <div class="col-md-6 div-image">
+        <img *ngIf="card.imageUrl" [src]="card.imageUrl"/>
+        <img *ngIf="!card.imageUrl" src="assets/img/image.jpg"/>
+        <div class="row-property mt-3">
+          <div class="col-md-4 div-property-image">
+              <span class="style-property">colors:</span>
+          </div>
+          <div class="col-md-8 div-property-value">
+              <span>{{card.colors}}</span>
+          </div>
+        </div>
+        <div class="row-property mt-3">
+          <div class="col-md-4 div-property-image">
+              <span class="style-property">manaCost:</span>
+          </div>
+          <div class="col-md-8 div-property-value">
+              <span>{{card.manaCost}}</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

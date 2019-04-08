@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPipe implements PipeTransform {
  transform(items: any, term: any): any {
-    if (term === undefined) return items;
+    if (term === undefined || term === "") return items;
 
     return items.filter(function(item) {
       for(let property in item){
