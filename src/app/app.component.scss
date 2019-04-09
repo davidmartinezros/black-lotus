@@ -1,3 +1,9 @@
+.main {
+  background-image: url('../assets/img/background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 .navbar-text-by {
   color: rgba(0, 0, 0, 0.5);
 }
@@ -9,7 +15,6 @@
 }
 
 .navbar-text-by-link:hover {
-  color: rgb(143, 89, 18);
   text-decoration: underline;
 }
 
@@ -44,7 +49,8 @@ span {
 }
 
 .background-div {
-  background-image: url('https://cdn-images-1.medium.com/max/2600/1*sYcrMSjHduNwYU-dI45L9w.jpeg');
+  background-color: rgba(255, 255, 255, 0.5);
+  //background-image: url('https://cdn-images-1.medium.com/max/2600/1*sYcrMSjHduNwYU-dI45L9w.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   padding: 10px;
@@ -52,28 +58,39 @@ span {
 }
 
 .div-properties {
-  padding:10px;
+  padding-bottom:10px;
   background-color: rgba($color: burlywood, $alpha: 0.5);
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 .div-image {
   padding:10px;
   text-align: center;
-  background-color: rgba($color: aquamarine, $alpha: 0.5);
+  background-color: rgba($color: rgb(255, 224, 184), $alpha: 0.5);
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-radius: 5px;
+}
+
+.span-image-helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
 }
 
 .div-property {
   border: 1px solid black;
+  border-radius: 5px;
   background-color: rgba($color: rgb(155, 109, 49), $alpha: 0.5);
 }
 
-.div-property-image {
-  border: 1px solid black;
-  background-color: rgba($color: rgb(33, 151, 112), $alpha: 0.5);
-}
-
 .div-property-value {
-  border: 1px solid black;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-radius: 5px;
   background-color: rgba($color: white, $alpha: 0.5);
 }
 
@@ -99,28 +116,26 @@ span {
 
 .style-form {
   background-color: rgba($color: rgba(255, 255, 255, 0.5), $alpha: 0.5);
-  padding-left: 20px;
-  padding-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px;
+  margin-top: 15px;
 }
 
 .md-form label {
   left: 15px;
-  color: burlywood;
+  color: black;
 }
 
 .md-form input[type=text] {
-  border-bottom: 1px solid burlywood; 
+  border-bottom: 1px solid black; 
 }
 
 .md-form input[type=text]:focus:not([readonly]) {
-  box-shadow: 0 1px 0 0 burlywood;
-  border-bottom: 1px solid burlywood; 
+  box-shadow: 0 1px 0 0 black;
+  border-bottom: 1px solid black; 
 }
 
 .md-form input[type=text]:focus:not([readonly]) + label {
-  color: burlywood;
+  color: black;
 }
 
 #search1 {

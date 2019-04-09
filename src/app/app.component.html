@@ -1,164 +1,159 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div style="width: 75%">
-        <div>
-          <a href="#" class="navbar-text-title-link">Black Lotus</a>
+  <div class="main">
+    <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgb(155, 109, 49);">
+        <div style="width: 75%">
+          <div>
+            <a href="#" class="navbar-text-title-link">Black Lotus</a>
+          </div>
+          <div id="header-navbar-text-by">
+            <span class="navbar-text-by">
+              Done by
+            </span>
+            <a href="https://davidmartinezros.com" class="navbar-text-by-link" target="_blank">David Martínez Ros</a>
+          </div>
         </div>
-        <div id="header-navbar-text-by">
-          <span class="navbar-text-by">
-            Done by
-          </span>
-          <a href="https://davidmartinezros.com" class="navbar-text-by-link">David Martínez Ros</a>
+        <div style="width: 25%;">
+          <img src="../assets/img/prova2.png" class="navbar-image"/>
         </div>
-      </div>
-      <div style="width: 25%;">
-        <img src="../assets/img/prova2.png" class="navbar-image"/>
-      </div>
-    </nav>
+      </nav>
 
-  <form>
-    <div class="style-form">
-      <div class="row mt-2">
-        <div class="col-md-10">
-          <div class="row md-form">
-            <!--<div class="col-md-11">-->
-                <input class="form-control" type="text" id="search1" aria-label="Search" mdbInput [(ngModel)]="termSearch" [ngModelOptions]="{standalone: true}">
-                <label for="search1">Search in Black Lotus</label>
-            <!--</div>
-            <div class="col-md-1"> 
-              <button mat-button *ngIf="termSearch" matSuffix mat-icon-button aria-label="Clear" (click)="termSearch=''">
-                <mat-icon>close</mat-icon>
-              </button>  
-            </div>-->
-          </div>
-          <div class="row mt-3">
-            <div class="col-md-4">
-              <input
-                type="checkbox"
-                [checked]="nameCheck"
-                (change)="nameCheck = !nameCheck"/>
-              <span class="span-search-by">by Name</span>
+    <form>
+      <div class="style-form">
+        <div class="row mt-2">
+          <div class="col-md-10">
+            <div class="row md-form" style="margin: 15px">
+              <!--<div class="col-md-11">-->
+                  <input class="form-control" type="text" id="search1" aria-label="Search" mdbInput [(ngModel)]="termSearch" [ngModelOptions]="{standalone: true}">
+                  <label for="search1">Search in Black Lotus</label>
+              <!--</div>
+              <div class="col-md-1"> 
+                <button mat-button *ngIf="termSearch" matSuffix mat-icon-button aria-label="Clear" (click)="termSearch=''">
+                  <mat-icon>close</mat-icon>
+                </button>  
+              </div>-->
             </div>
-            <div class="col-md-4">
-              <input
-                type="checkbox"
-                [checked]="typesCheck"
-                (change)="typesCheck = !typesCheck"/>
-              <span class="span-search-by">by Types</span>
+            <div class="row mt-3">
+              <div class="col-md-4" style="text-align: center">
+                <input
+                  type="checkbox"
+                  [checked]="nameCheck"
+                  (change)="nameCheck = !nameCheck"/>
+                <span class="span-search-by">by Name</span>
+              </div>
+              <div class="col-md-4" style="text-align: center">
+                <input
+                  type="checkbox"
+                  [checked]="typesCheck"
+                  (change)="typesCheck = !typesCheck"/>
+                <span class="span-search-by">by Types</span>
+              </div>
+              <div class="col-md-4" style="text-align: center">
+                <input
+                  type="checkbox"
+                  [checked]="textCheck"
+                  (change)="textCheck = !textCheck"/>
+                <span class="span-search-by">by Text</span>
+              </div>
             </div>
-            <div class="col-md-4">
-              <input
-                type="checkbox"
-                [checked]="textCheck"
-                (change)="textCheck = !textCheck"/>
-              <span class="span-search-by">by Text</span>
-            </div>
           </div>
-        </div>
-        <div class="col-md-2">
-          <button mat-stroked-button (click)="search()" class="style-button">Search</button>
-        </div>
-      </div>
-    </div>
-  </form>
-  <!--
-  <input type="text" id="searchAutoComplete" [(ngModel)]="termAutoComplete" [ngModelOptions]="{standalone: true}">
-  -->
-  <div *ngIf="cards" class="container">
-    <div *ngFor="let card of cards | filter: termAutoComplete" class="row mt-3 background-div">
-      <div class="col-md-6 div-properties">
-        <div class="row-property mt-3">
-          <div class="col-md-4 div-property">
-              <span class="style-property">id:</span>
-          </div>
-          <div class="col-md-8 div-property-value">
-              <span>{{card.id}}</span>
-          </div>
-        </div>
-        <div class="row-property mt-3">
-          <div class="col-md-4 div-property">
-              <span class="style-property">name:</span>
-          </div>
-          <div class="col-md-8 div-property-value">
-              <span>{{card.name}}</span>
-          </div>
-        </div>
-        <div class="row-property mt-3">
-          <div class="col-md-4 div-property">
-              <span class="style-property">type:</span>
-          </div>
-          <div class="col-md-8 div-property-value">
-              <span>{{card.type}}</span>
-          </div>
-        </div>
-        <div class="row-property mt-3">
-          <div class="col-md-4 div-property">
-              <span class="style-property">power:</span>
-          </div>
-          <div class="col-md-8 div-property-value">
-              <span>{{card.power}}</span>
-          </div>
-        </div>
-        <div class="row-property mt-3">
-          <div class="col-md-4 div-property">
-              <span class="style-property">toughness:</span>
-          </div>
-          <div class="col-md-8 div-property-value">
-              <span>{{card.toughness}}</span>
-          </div>
-        </div>
-        <div class="row-property mt-3">
-          <div class="col-md-4 div-property">
-              <span class="style-property">rarity:</span>
-          </div>
-          <div class="col-md-8 div-property-value">
-              <span>{{card.rarity}}</span>
-          </div>
-        </div>
-        <div class="row-property mt-3">
-          <div class="col-md-4 div-property">
-              <span class="style-property">originalType:</span>
-          </div>
-          <div class="col-md-8 div-property-value">
-              <span>{{card.originalType}}</span>
-          </div>
-        </div>
-        <div class="row-property mt-3">
-          <div class="col-md-4 div-property">
-              <span class="style-property">originalText:</span>
-          </div>
-          <div class="col-md-8 div-property-value">
-              <span>{{card.originalText}}</span>
-          </div>
-        </div>
-        <div class="row-property mt-3">
-          <div class="col-md-4 div-property">
-              <span class="style-property">artist:</span>
-          </div>
-          <div class="col-md-8 div-property-value">
-              <span>{{card.artist}}</span>
+          <div class="col-md-2">
+            <button mat-stroked-button (click)="search()" class="style-button">Search</button>
           </div>
         </div>
       </div>
-      <div class="col-md-6 div-image">
-        <img *ngIf="card.imageUrl" [src]="card.imageUrl"/>
-        <img *ngIf="!card.imageUrl" src="assets/img/image.jpg"/>
-        <div class="row-property mt-3">
-          <div class="col-md-4 div-property-image">
-              <span class="style-property">colors:</span>
+    </form>
+    <!--
+    <input type="text" id="searchAutoComplete" [(ngModel)]="termAutoComplete" [ngModelOptions]="{standalone: true}">
+    -->
+    <div *ngIf="cards" class="container">
+      <div *ngFor="let card of cards | filter: termAutoComplete" class="row mt-3 background-div">
+        <div class="col-md-6 div-properties">
+          <!--<div class="row-property mt-3">
+            <div class="col-md-4 div-property">
+                <span class="style-property">id:</span>
+            </div>
+            <div class="col-md-8 div-property-value">
+                <span>{{card.id}}</span>
+            </div>
+          </div>-->
+          <div *ngIf="card.name" class="row-property mt-3">
+            <div class="col-md-4 div-property">
+                <span class="style-property">Name</span>
+            </div>
+            <div class="col-md-8 div-property-value">
+                <span>{{card.name}}</span>
+            </div>
           </div>
-          <div class="col-md-8 div-property-value">
-              <span>{{card.colors}}</span>
+          <div *ngIf="card.type" class="row-property mt-3">
+            <div class="col-md-4 div-property">
+                <span class="style-property">Type</span>
+            </div>
+            <div class="col-md-8 div-property-value">
+                <span>{{card.type}}</span>
+            </div>
+          </div>
+          <div *ngIf="card.power" class="row-property mt-3">
+            <div class="col-md-4 div-property">
+                <span class="style-property">Power</span>
+            </div>
+            <div class="col-md-8 div-property-value">
+                <span>{{card.power}}</span>
+            </div>
+          </div>
+          <div *ngIf="card.toughness" class="row-property mt-3">
+            <div class="col-md-4 div-property">
+                <span class="style-property">Toughness</span>
+            </div>
+            <div class="col-md-8 div-property-value">
+                <span>{{card.toughness}}</span>
+            </div>
+          </div>
+          <div *ngIf="card.rarity" class="row-property mt-3">
+            <div class="col-md-4 div-property">
+                <span class="style-property">Rarity</span>
+            </div>
+            <div class="col-md-8 div-property-value">
+                <span>{{card.rarity}}</span>
+            </div>
+          </div>
+          <div *ngIf="card.manaCost" class="row-property mt-3">
+            <div class="col-md-4 div-property">
+                <span class="style-property">Mana cost</span>
+            </div>
+            <div class="col-md-8 div-property-value">
+                <span>{{card.manaCost}}</span>
+            </div>
+          </div>
+          <div *ngIf="card.colors && (card.colors.length > 0)" class="row-property mt-3">
+            <div class="col-md-4 div-property">
+                <span class="style-property">Colors</span>
+            </div>
+            <div class="col-md-8 div-property-value">
+                <span>{{card.colors}}</span>
+            </div>
+          </div>
+          <div *ngIf="card.text" class="row-property mt-3">
+            <div class="col-md-4 div-property">
+                <span class="style-property">Text</span>
+            </div>
+            <div class="col-md-8 div-property-value">
+                <span>{{card.text}}</span>
+            </div>
+          </div>
+          <div *ngIf="card.artist" class="row-property mt-3">
+            <div class="col-md-4 div-property">
+                <span class="style-property">Artist</span>
+            </div>
+            <div class="col-md-8 div-property-value">
+                <span>{{card.artist}}</span>
+            </div>
           </div>
         </div>
-        <div class="row-property mt-3">
-          <div class="col-md-4 div-property-image">
-              <span class="style-property">manaCost:</span>
-          </div>
-          <div class="col-md-8 div-property-value">
-              <span>{{card.manaCost}}</span>
-          </div>
+        <div class="col-md-6 div-image">
+          <span class="span-image-helper"></span>
+          <img *ngIf="card.imageUrl" [src]="card.imageUrl" style="vertical-align: middle"/>
+          <img *ngIf="!card.imageUrl" src="assets/img/image.jpg"/>
         </div>
       </div>
     </div>
